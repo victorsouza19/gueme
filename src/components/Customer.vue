@@ -1,9 +1,11 @@
 <template>
   <div id="customer">
-    <input type="text" :value="name">
-    <h2>{{ name }}, {{age}}</h2>
-    <p>{{ number }} - {{ email }} </p>
-    <button>Call</button>
+    <h4>Name: {{customer.name}}</h4>
+    <hr>
+    <p>{{customer.description}}</p>
+    <p>Number: {{customer.number}}</p>
+    <p>Email: {{customer.email}}</p>
+    <p>Age: {{customer.age}}</p>
   </div>
 </template>
 
@@ -11,11 +13,15 @@
 export default {
   data(){
     return{
-      name: "Victor",
-      number: "19384473",
-      email: "victor@email.com",
-      age: 21
     }
+  },
+  props: {
+    name: String,
+    description: String,
+    number: Number,
+    email: String,
+    age: Number,
+    customer: Object
   }
 }
 </script>
@@ -24,15 +30,8 @@ export default {
   #customer{
     background-color: #fff;
     border-radius: 0.5rem;
-    padding: 1rem;
-    margin: 2rem;
+    padding: 2%;
+    margin: 2%;
   }
 
-  button{
-    background: #000;
-    color: #fff;
-    border: none;
-    border-radius: 0.5rem;
-    padding: 0.5rem 1rem;
-  }
 </style>
