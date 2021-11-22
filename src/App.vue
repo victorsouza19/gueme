@@ -6,9 +6,11 @@
       <input type="text" v-model="customer.name">
     </div>
 
-    <Customer :customer="customer" />
+    <Customer :customer="customer" :showAge="true"/>
+    <Customer :customer="customer" :showAge="false"/>
+    <Customer :customer="customer" :showAge="true"/>
 
-    <Customer 
+    <!-- <Customer 
       :name="randomName" 
       description="Victor is a FullStack Software Developer, he is studying Vue.js at the moment"
       number="1934584473"
@@ -28,7 +30,8 @@
       number="11987741358"
       email="pedro.mrv@email.com"
       age= "33"
-    />
+    /> -->
+
   </div>
 </template>
 
