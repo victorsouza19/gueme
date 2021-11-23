@@ -4,10 +4,14 @@
     <hr>
     <p>{{customer.description}}</p>
     <p>Number: {{customer.number}}</p>
-    <p>Email: {{customer.email}}</p>
-    <p v-show="showAge == true">Age with v-show: {{customer.age}}</p>
+    <p>Email: {{ emailProcess }}</p>
+
+    <!-- <p v-show="showAge == false">Age with v-show: {{customer.age}}</p>
     <p v-if="showAge == true">Age: {{customer.age}}</p>
-    <!-- <p v-else>Age: -- </p> -->
+    <p v-else>Age: -- </p> -->
+
+    <button @click="setColor($event)">Set color!</button>
+    <button @click="sendDeleteEvent">Delete</button>
   </div>
 </template>
 
@@ -18,9 +22,27 @@ export default {
       isPremium: false
     }
   },
+
   props: {
     customer: Object,
     showAge: Boolean
+  },
+
+  methods: {
+    setColor: function($event){
+      console.log($event);
+      this.isPremium = !this.isPremium;
+    },
+    sendDeleteEvent: function(){
+      console.log("Send delete from child!")
+      this.$emit("deleteCustomer", {customerId: this.customer.id, component: this});
+    }
+  },
+
+  computed: {
+    emailProcess: function(){
+      return this.customer.email.toUpperCase();
+    }
   }
 }
 </script>
@@ -29,6 +51,7 @@ export default {
   .customer{
     background-color: #fff;
     border-radius: 0.5rem;
+    border: 1px solid purple;
     padding: 2%;
     margin: 2%;
   }
