@@ -20,6 +20,13 @@
 export default {
   props: {
     person: Object
+  },
+
+  methods: {
+    randomImage: function(){
+      Math.ceil(Math.random()*10)
+    }
+
   }
 }
 </script>

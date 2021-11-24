@@ -1,5 +1,9 @@
 <template>
   <div id="app">
+    <button class="btn-back" @click="goHome">
+      &lt;
+    </button>
+
     <Home />
     <Options 
       v-if="hideOptions == false" @showRegister="showRegister"
@@ -127,6 +131,12 @@ export default {
 
       let newArr = this.customers.filter(customer => customer.id != id);
       this.customers = newArr;
+    },
+
+    goHome: function(){
+      this.hideOptions= false;
+      this.showRegisterForm= false;
+      this.showFriends= false;
     }
   },
 
@@ -153,5 +163,26 @@ export default {
 
   body{
     background-color: #DFDFDF;
+  }
+
+  .btn-back{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+
+    background: rgb(224, 35, 82);
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 50%;
+
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0.8rem;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
   }
 </style>
