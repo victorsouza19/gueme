@@ -1,4 +1,6 @@
-# customers
+# Gueme
+
+> Gueme is a simple website made for meeting people and making friends.
 
 ## Project setup
 ```
