@@ -1,70 +1,53 @@
 <template>
   <div id="app">
-    <div id="info">
-      <h1>Understanding Vue.js</h1>
-    </div>
-
-    <div class="create">
-      <h3>Register: </h3>
-
-      <input type="text" placeholder="name" v-model="nameField">
-      <small id="nameErr" v-if="nameError == true">Invalid name, try again!</small>
-      <input type="email" placeholder="email" v-model="emailField">
-      <input type="number" placeholder="number" v-model="numberField">
-      <input type="text" placeholder="description" v-model="descriptionField">
-
-      <button @click="userRegister">Register!</button>
-    </div>
-    
-
-    <div v-for="(customer, index) in orderCustomers" :key="customer.id">
-      <h3>{{ index+1 }}</h3>
-      <Customer :customer="customer" :showAge="true" @deleteCustomer="deleteUsr($event)" />
-
-      <!-- <div class="edit">
-        <h3>Editar</h3>
-        <input type="text" v-model="customer.name">
-        <input type="text" v-model="customer.number">
-        <input type="text" v-model="customer.email">
-      </div> -->
-
-    </div>
-
-    <!-- 
-    <Customer :customer="customer" :showAge="true"/>
-    -->
-
-    <!-- <Customer 
-      :name="randomName" 
-      description="Victor is a FullStack Software Developer, he is studying Vue.js at the moment"
-      number="1934584473"
-      email="victor@email.com"
-      age= "21"
+    <Home />
+    <Options 
+      v-if="hideOptions == false" @showRegister="showRegister"
+      @showAvailableFriends="showAvailableFriends" 
     />
-    -->
 
+    <Register 
+      v-if="showRegisterForm == true" 
+    />
+
+    <div v-if="showFriends == true">
+      <div v-for="person in people" :key="person.id">
+        <People  
+          :person="person" 
+        />
+      </div>
+    </div>
   </div>
 </template>
 
 
 <script>
-import Customer from './components/Customer';
+import People from './components/People';
+import Options from './components/Options';
+import Home from './components/Home';
+import Register from './components/Register';
 import _ from 'lodash';
-// import Item from './components/Item.vue';
+
+
 
 export default {
   name: 'App',
 
   data(){
     return{
+
+
       nameField: "",
       emailField: "",
       numberField: 0,
       descriptionField: "",
 
       nameError: false,
+      hideOptions: false,
+      showRegisterForm: false,
+      showFriends: false,
 
-      customers: [
+      people: [
         {
           id: 1,
           name: "Victor Souza",
@@ -98,11 +81,26 @@ export default {
   },
 
   components: {
-    Customer
-    // Item
+    Home,
+    Options,
+    People,
+    Register
+    
   },
 
   methods: {
+    showRegister: function(){
+      this.hideOptions = true;
+      this.showRegisterForm = true;
+      this.showFriends = false;
+    },
+
+    showAvailableFriends: function(){
+      this.hideOptions = true;
+      this.showRegisterForm = false;
+      this.showFriends = true;
+    },
+
     userRegister: function(){
       if(this.nameField == "" || this.nameField == " "){
         this.nameError = true;
@@ -122,6 +120,7 @@ export default {
         this.nameError = false;
       }
     },
+
     deleteUsr: function($event){
       console.log($event);
       let id = $event.customerId;
@@ -132,8 +131,8 @@ export default {
   },
 
   computed: {
-    orderCustomers: function(){
-      return _.orderBy(this.customers, ['name'], ['asc']);
+    orderPeople: function(){
+      return _.orderBy(this.people, ['name'], ['asc']);
     }
   }
 }
@@ -141,58 +140,18 @@ export default {
 
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Outfit:wght@100;200;300;400;500;600;700;800&display=swap');
+
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: 'Lato', sans-serif;
+    font-family: 'Outfit', sans-serif;
+  }
+
   body{
-    background-color: #ebebeb;
-  }
-
-  #info{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .create{
-    background: #fff;
-    border-radius: 0.5rem;
-    padding: 1rem;
-    margin: auto;
-    width: 90%;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-direction: column;
-  }
-
-  .create input + input {
-    margin-top: 1rem;
-  }
-
-  .create button{
-    background: black;
-    color: #fff;
-
-    margin: 1rem;
-    border: none;
-    border-radius: 0.5rem;
-    padding: 0.5rem 1rem;
-  }
-
-  .edit{
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;  
-  }
-
-  input{
-    border-radius: 0.5rem;
-    padding: 0.5rem 1rem;
-    border: 1px solid purple;
-    color: purple;
-  }
-
-  #nameErr{
-    color: red;
-    margin: 0.1rem 0 1rem 0;
+    background-color: #DFDFDF;
   }
 </style>
