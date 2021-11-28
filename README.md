@@ -4,9 +4,11 @@
   
 <img src="https://user-images.githubusercontent.com/71740612/143323364-eb26ea79-9b1a-408d-abb8-778325a44489.png" width="200" alt="gueme img">
   
-![GitHub language count](https://img.shields.io/github/languages/count/victorsouza19/gueme?style=for-the-badge)
-![Bitbucket open issues](https://img.shields.io/bitbucket/issues/victorsouza19/gueme?style=for-the-badge)
-![Followers](https://img.shields.io/github/followers/victorsouza19?style=for-the-badge)
+![Badge](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![Badge](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![Badge](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
+![Badge](https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D)
+![Badge](https://img.shields.io/badge/Font_Awesome-339AF0?style=for-the-badge&logo=fontawesome&logoColor=white)
 </div>
 
 ![image](https://user-images.githubusercontent.com/71740612/143324370-9866a856-b069-453a-9a1e-d325e9f7d0b1.png)
