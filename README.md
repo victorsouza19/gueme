@@ -12,6 +12,12 @@
 ![image](https://user-images.githubusercontent.com/71740612/143324370-9866a856-b069-453a-9a1e-d325e9f7d0b1.png)
 > Gueme is a simple website made for meeting people and making friends.
 
+## 🚧 Project under construction
+
+This project is under construction, i will be update it in the future (:
+
+Coming soon...
+
 ## 💻 Prerequisites
 
 Before start, make sure you meet these requirements:
